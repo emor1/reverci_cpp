@@ -108,9 +108,10 @@ void Reversi::GenerateOutput(){
     SDL_RenderClear(mRenderer);
     SDL_SetRenderDrawColor(
         mRenderer,
-        255,255,255,255
+        255,255,0,255
     );
 
-    DrawEllipse(60,100,100,mRenderer);
+    // DrawEllipse(60,100,100,mRenderer);
+    testCircle(mRenderer);
     SDL_RenderPresent(mRenderer);
 }

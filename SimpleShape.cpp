@@ -1,5 +1,7 @@
 #include "SimpleShape.h"
 
+#define PI 3.1415
+
 void DrawEllipse(int r, int in_x, int in_y, SDL_Renderer* renderer){
     for(int x=-r;x<=r;x++){
         int y = sqrt(r*r-x*x)+0.5;
@@ -13,37 +15,13 @@ void DrawEllipse(int r, int in_x, int in_y, SDL_Renderer* renderer){
     }
 }
 
-void draw_circle(SDL_Renderer *renderer, int sx, int sy, int r) {
-    int x, y, px, py;
-
-    /* x を基準に点を描画 */
-    for( x = -r; x <= r; x++ ) {
-       y = sqrt(r*r - x*x) + 0.5;
-       px = sx + x;
-       py = sy - y;
-       SDL_RenderDrawPoint(renderer, px, py);
-       py = sy + y;
-       SDL_RenderDrawPoint(renderer, px, py);
-    }
-    /* y を基準に点を描画 */
-    for( y = -r; y <=r; y++ ) {
-       x = sqrt(r*r - y*y) + 0.5;
-       px = sx + x;
-       py = sy - y;
-       SDL_RenderDrawPoint(renderer, px, py);
-       px = sx - x;
-       SDL_RenderDrawPoint(renderer, px, py);
-    }
-}
-
-void fill_circle(SDL_Renderer *renderer, int sx, int sy, int r) {
-    int x, y, px, py1, py2;
-
-    for( x = -r; x <= r; x++ ) {
-       y = sqrt(r*r - x*x) + 0.5;
-       px = sx + x;
-       py1 = sy - y;
-       py2 = sy + y;
-       SDL_RenderDrawLine(renderer, px, py1, px, py2);
+void testCircle(SDL_Renderer* renderer){
+    float x, y;
+    float r = 100;
+    for(float i = 0; i < 2*PI; i+=0.001){
+        x = r * cos(i) + 200;
+        y = r * sin(i) + 200;
+        printf("%f , %f\n", x, y);
+        SDL_RenderDrawPoint(renderer, (int)x, (int)y);
     }
 }
