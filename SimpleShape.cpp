@@ -18,9 +18,10 @@ void DrawEllipse(int r, int in_x, int in_y, SDL_Renderer* renderer){
 void testCircle(SDL_Renderer* renderer){
     float x, y;
     float r = 100;
+    float r2 = 300;
     for(float i = 0; i < 2*PI; i+=0.001){
         x = r * cos(i) + 200;
-        y = r * sin(i) + 200;
+        y = r2 * sin(i) + 200;
         printf("%f , %f\n", x, y);
         SDL_RenderDrawPoint(renderer, (int)x, (int)y);
     }
